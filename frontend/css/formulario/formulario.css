@@ -60,7 +60,7 @@ body {
     left: 0;
     width: 100%;
     height: 90px;          /* ajuste fino: 90px é um bom ponto de partida */
-    background-image: url('img/ondas.png');
+    background-image: url('../../images/ondas.png');
     background-repeat: repeat-x;
     background-size: auto 90px;   /* força a altura da imagem para 90px, mantém proporção */
     background-position: top left;
@@ -255,7 +255,7 @@ body {
 .onda-fim {
     width: 100%;
     height: 90px;                     /* altura da onda; ajusta se necessário */
-    background-image: url('img/ondas.png');
+    background-image: url('../../images/ondas.png');
     background-repeat: repeat-x;
     background-size: auto 90px;       /* força altura, preserva proporções */
     background-position: top center;
