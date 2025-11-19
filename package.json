@@ -2,9 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend do projeto caoragem-aumor",
-  "main": "index.js",
+  "main": "backend/index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon backend/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "3Ms",
