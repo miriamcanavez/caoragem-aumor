@@ -1,7 +1,8 @@
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
-import routes from "routes/routes.js";
+import navigation from "./routes/navigation.js";
+import api from "./routes/api.js";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -14,8 +15,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../frontend")));
 
 app.use(express.json());
+
 // Definição das rotas
-app.use("/", routes);
+app.use("/", navigation);
+app.use("/api", api);
 
 // Servidor
 const PORT = 3000;
