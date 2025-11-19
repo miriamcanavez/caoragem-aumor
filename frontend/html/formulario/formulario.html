@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página cão - Formulário</title>
+    <link rel="stylesheet" href="../../css/formulario/formulario.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <img src="../../images/logo.png" alt="Cãoragem e Aumor" class="logo">
+    
+    <nav class="menu">
+        <a href="#">Início</a>
+        <a href="#">Donativos</a>
+        <a href="#">Contactos</a>
+        <a href="#">Catálogo</a>
+    </nav>
+</header>
+
+<!-- ONDA DO MOCKUP -->
+    <div class="onda-mockup"></div>
+
+    <!-- NOME DO CÃO -->
+    <h1 id="nomeAnimal" class="pet-name">Nome do Animal</h1>
+
+    <!-- GALERIA -->
+    <section class="carousel-container">
+        <button class="arrow left" onclick="mudarImagem(-1)">&#8592;</button>
+
+    <div class="carousel">
+        <img src="foto1.jpg" class="slide active">
+        <img src="foto2.jpg" class="slide">
+        <img src="foto3.jpg" class="slide">
+    </div>
+
+    <button class="arrow right" onclick="mudarImagem(1)">&#8594;</button>
+
+    <div class="dots">
+        <span onclick="irPara(0)" class="dot active"></span>
+        <span onclick="irPara(1)" class="dot"></span>
+        <span onclick="irPara(2)" class="dot"></span>
+    </div>
+    </section>
+
+    <!-- INFORMAÇÕES DO ANIMAL -->
+    <section class="info-form-wrapper">
+
+    <!-- COLUNA ESQUERDA -->
+    <div class="left-column">
+        <section class="info-section">
+
+            <div class="info-box">
+                <p>Idade: 2 anos</p>
+                <p>Sexo: Macho</p>
+                <p>Porte: Pequeno</p>
+                <p>Esterilizado</p>
+                <p>Vacinado</p>
+                <p>Desparasitado</p>
+            </div>
+
+            <div class="info-box">
+                <p>
+                O Bento procura uma família para a vida toda que lhe proporcione 
+                muitas aventuras e momentos de brincadeira!
+                </p>
+                <br>
+                <p>
+                É um cãozinho extremamente meigo, alegre e brincalhão. Passeia bem à trela 
+                e é muito asseado dentro de casa.
+                </p>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- COLUNA DIREITA -->
+    <div class="right-column">
+        <form class="form-card">
+
+            <h2>FORMULÁRIO</h2>
+
+            <label>Nome Completo:</label>
+            <input type="text" required>
+
+            <label>Localização:</label>
+            <input type="text" required>
+
+            <label>Telefone:</label>
+            <input type="text" required>
+
+            <label>Email:</label>
+            <input type="email" required>
+
+            <label>Observações:</label>
+            <textarea rows="5"></textarea>
+
+            <button type="submit">SUBMETER</button>
+        </form>
+    </div>
+
+</section>
+
+<div class="onda-fim"></div>
+
+<footer class="footer">
+    © 2025 Cãoragem e Aumor. Todos os direitos reservados.
+</footer>
+
+<script src="../../js/formulario/formulario.js"></script>
