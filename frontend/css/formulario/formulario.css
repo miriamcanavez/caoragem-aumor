@@ -185,7 +185,19 @@ body {
     box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
     font-family: 'ChelseaMarket', sans-serif;
 }
+.info-box.description {
+    height: 380px;
+}
 
+.info-box {
+    height: 420px; /* 👈 AJUSTE PARA A ALTURA EXATA */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* centraliza vertical */
+    align-items: center;      /* centraliza horizontal */
+    text-align: center;
+    padding: 30px;            /* padding leve só para respirar */
+}
 /* Formulário */
 .form-card {
     background: #D9D9D9;
