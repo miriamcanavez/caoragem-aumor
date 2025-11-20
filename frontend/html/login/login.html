@@ -4,25 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página com Header</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../../css/login/login.css">
 </head>
 
 <body>
-
-    <!-- HEADER FIXO -->
     <header class="header">
-        <img src="img/logo.png" alt="Logo do canil" class="logo">
+        <img src="../../images/logo.png" alt="Logo do canil" class="logo">
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main>
-        <h1>Conteúdo da página</h1>
-        <p>O restante da tua página começa aqui…</p>
-    </main>
-
-    <!-- CONTAINER DO FORM -->
-    <main class="login-container">
+    <div class="login-container">
         <form id="loginForm" class="login-box">
+
             <h2>LOGIN</h2>
 
             <label>Username</label>
@@ -31,9 +23,11 @@
             <label>Password</label>
             <input type="password" id="password" required>
 
+            <p class="error-message" id="error-message">LOGIN INCORRETO</p>
+
             <button type="submit">SUBMETER</button>
         </form>
-    </main>    
+    </div>    
 
 <footer class="footer">
     © 2025 Cãoragem e Aumor. Todos os direitos reservados.

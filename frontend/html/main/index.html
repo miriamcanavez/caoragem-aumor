@@ -22,13 +22,14 @@
 
     <!-- MAIN -->
     <div class="container">
-      <div class="onda-mockup"></div>
-      <div>
+        <div class="onda-mockup"></div>
+
         <p class="paragrafo">"Adotar é amar sem rótulos, sem raça e sem preconceito"</p>
+        
         <div class="sobre">
             <img src="../../images/fotonossa.png" alt="Foto das três fundadoras" />
-            <p class="paragrafo">SOBRE NÓS</p>
-            <p>
+            <p class="paragrafo-sobre">SOBRE NÓS</p>
+            <p class="paragrafo-texto">
             Olá! Somos a <strong>Miriam</strong>, a <strong>Malu</strong> e a
             <strong>Maria</strong> — três amigas unidas por uma paixão comum: os
             cães. Acreditamos que cada cão merece uma segunda oportunidade, um
@@ -39,50 +40,64 @@
             deles como as nossas.Se acredita, como nós, que o amor verdadeiro tem
             quatro patas, venha conhecer o
             <span style="color: #d9b9ad">Cãoragem e Aumor</span>.
-            </p>  
-        </div>    
-      </div>
+            </p>      
+        </div>
+        
     </div>
 
-    <div class="carrossel">
-      <div class="carrossel-caes">
-        <article class="slide" data-name="Bento">
-          <div class="thumb">BENTO</div>
-          <h3>Bento <small>| 2 anos • Macho</small></h3>
-          <p class="meta">Carinhoso, brincalhão e já habituado a humanos.</p>
-          <button class="btn adopt-btn" data-action="adotar">Adotar</button>
-        </article>
+    <!-- GALERIA -->
+    <section id="carrossel" class="carrossel">
+        <h3>ENCONTRA AQUI O TEU NOVO CÃOMPANHEIRO</h3>
 
-        <article class="slide" data-name="Cristal">
-          <div class="thumb">CRISTAL</div>
-          <h3>Cristal <small>| 1 ano • Fêmea</small></h3>
-          <p class="meta">Meiga, sociável e ótima companhia para famílias.</p>
-          <button class="btn adopt-btn" data-action="adotar">Adotar</button>
-        </article>
+        <div class="carrossel-container">
+            <button class="carrossel-prev"><span class="seta-antes"></span></button>
+            
+            <div class="carrossel-galeria">
+            <div class="carrossel-track" id="carrossel-track"></div>
+            </div>
+            
+            <button class="carrossel-next"><span class="seta-depois"></span></button>
+        </div>
 
-        <article class="dog slide" data-name="Pipa">
-          <div class="thumb">PIPA</div>
-          <h3>Pipa <small>| 5 anos • Fêmea</small></h3>
-          <p class="meta">Tranquila, está habituada a rotinas calmas.</p>
-          <button class="btn adopt-btn" data-action="adotar">Adotar</button>
-        </article>
+        <div>
+            <a class="botao-catalogo" href="../catalogo/catalogo.html" role="button">Catálogo</a>    
+        </div>
 
-        <article class="dog slide" data-name="Mike">
-          <div class="thumb">MIKE</div>
-          <h3>Mike <small>| 6 meses • Macho</small></h3>
-          <p class="meta">Puppy energético, ideal para lares ativos.</p>
-          <button class="btn adopt-btn" data-action="adotar">Adotar</button>
-        </article>
-      </div>
-    </div>
-
+    </section>
+    
+    <!-- DONATIVOS -->
     <div id="donativos">
-      <img src="../../images/transferência.png" alt="transferência">
-      <img src="../../images/mbway.png" alt="mbway">
+        <div>
+            <img src="../../images/transferência.png" alt="transferência">
+            <p class="paragrafo-donativos">IBAN</p>
+            <p>PT500035 0158 0001 1405 6304 1</p>    
+        </div>
+
+        <div>
+            <img src="../../images/mbway.png" alt="mbway">
+            <p class="paragrafo-donativos">TELEMÓVEL</p>
+            <p>919 999 000</p> 
+        </div>
     </div>
 
+    <!-- CONTACTOS -->
     <div id="contactos">
-      
+        <div class="frase">
+            <p>Tem um cão resgatado, abandonado ou em situação de risco? Entre em contacto conosco.</p>
+        </div>
+
+        <div>
+            <p class="local">CONTACTOS</p>
+            <p>+351 919 999 000</p>
+            <p>caoragemaumor@gmail.com</p>
+        </div>
+
+        <div>
+            <p class="local">ENDEREÇO</p>
+            <p>Rua dos Patudos Felizes, nº 42</p>
+            <p>4480-219 Vila Cãoragem</p>
+            <p>Portugal</p>
+        </div>
     </div>
 
     <!-- FOOTER -->

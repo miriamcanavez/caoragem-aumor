@@ -14,12 +14,30 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Aref';
+    src: url('../../fonts/ArefRuqaa-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../fonts/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     margin: 0;
     padding: 0;
+    padding-top: 100px;
 }
 
 /* HEADER */ 
+
 .header {
     width: 100%;
     height: 160px; 
@@ -59,7 +77,15 @@ body {
 }
 
 .container .paragrafo {
+    font-family: 'IndieFlower';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
 
+.container .paragrafo-sobre {
+    font-family: 'IndieFlower';
 }
 
 .container .onda-mockup {
@@ -77,24 +103,194 @@ body {
     z-index: 1;
 }
 
-body {
-    margin: 0;
-    padding-top: 100px;
+.container .paragrafo-texto {
+    font-family: 'Roboto';
+    size: 50px;
 }
 
-.carrossel {
-    background-image: url("../../images/background1.png");
+.sobre {
+    background-color: rgba(211, 211, 211, 0.404);
+    border-radius: 50px;
+    width: 150vh;
+    display: flex;
+    justify-content: left;
+    align-items: left;
 }
+
+.sobre img {
+    height: 392px;
+    width: 479px;
+    object-fit: contain;
+    display: flex;
+    justify-content: right;
+}
+
+ /* GALERIA */
+
+ #carrossel h3 {
+    font-family: 'IndieFlower';
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    font-size: 50px;
+ }
+
+#carrossel {
+    width: 100%;
+    min-height: 100vh; /* ocupa a altura da janela para seguir o tamanho da página */
+    background-image: url("../../images/background1.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover; /* ajusta a imagem para cobrir o elemento mantendo proporção */
+    position: relative;
+}
+
+#carrossel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.carrossel-track { 
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.slide {
+  min-width: 300px;
+  max-width: 300px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 12px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.slide img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.slide h4 {
+  margin: 5px 0;
+}
+
+.slide small {
+  color: #666;
+}
+
+.carrossel-prev {
+  width: 50px; /* Define a largura */
+  height: 50px; /* Define a altura */
+  background-color: lightgray; /* Cor de fundo */
+  border: none;
+  border-radius: 50%; /* Torna o botão redondo */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrossel-next {
+  width: 50px; /* Define a largura */
+  height: 50px; /* Define a altura */
+  background-color: lightgray; /* Cor de fundo */
+  border: none;
+  border-radius: 50%; /* Torna o botão redondo */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#carrossel .carrossel-prev,
+#carrossel .carrossel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+#carrossel .carrossel-prev {
+    left: 16px;
+}
+
+#carrossel .carrossel-next {
+    right: 16px;
+}
+
+#carrossel .carrossel-prev .seta-antes,
+#carrossel .carrossel-next .seta-depois {
+    width: 12px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: block;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 0;
+    transform-origin: center;
+}
+
+#carrossel .carrossel-prev .seta-antes {
+    transform: rotate(140deg);
+}
+
+#carrossel .carrossel-next .seta-depois {
+    transform: rotate(315deg);
+}
+
+.botao-catalogo {
+    background-color: #9fa692c9;
+    border: none;
+    border-radius: 20px;
+    margin: 100px 100px 100px auto; 
+    padding: 5px 20px;
+    display: block;
+    font-family: 'IndieFlower';
+    font-size: x-large;
+    text-decoration: none;
+    width: fit-content;
+}
+
+/* DONATIVOS */
 
 #donativos {
     background-color: #d9b9ad86;
 }
 
+#donativos p {
+    font-family: 'Aref';
+}
+
+#donativos .paragrafo-donativos {
+    font-weight: bold;
+}
+
+/* CONTACTOS */
+
 #contactos {
     background-color: #f2f2f28a;
 }
 
+#contactos p {
+    font-family: 'Aref';
+}
+
+#contactos .local {
+    font-family: 'IndieFlower';
+}
+
 /* FOOTER */ 
+
 .footer {
     width: 100%;
     background: #dbe7e7;
