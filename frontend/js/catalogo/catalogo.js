@@ -1,4 +1,4 @@
-fetch("/api/caes")
+fetch("/../uplods/caes")
   .then((res) => res.json())
   .then((caes) => {
     const container = document.querySelector(".catalogo");
@@ -6,7 +6,7 @@ fetch("/api/caes")
     caes.forEach((cao) => {
       container.innerHTML += `
         <div class="card">
-          <img src="/images/caes/fotos/${cao.foto}">
+          <img src="../uploads/caes/fotos${cao.foto}">
           <div class="nome">${cao.nome}</div>
           <div class="dados">${formatarIdade(cao.idade)} | ${
         cao.sexo == "F" ? "Fêmea" : "Macho"
