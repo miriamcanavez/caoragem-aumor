@@ -1,9 +1,15 @@
 <header class="header">
   <img src="/images/logo.png" alt="Cãoragem e Aumor" class="logo" />
-
+  <% if (admin) { %>
+  <div class="header-buttons">
+    <button class="btn-header">ADICIONAR +</button>
+    <button class="btn-header">WEBSITE</button>
+  </div>
+  <% } else { %>
   <nav class="menu">
     <% if (typeof menu !== "undefined") { %> <% menu.forEach(item => { %>
     <a href="<%= item.url %>"><%= item.label %></a>
     <% }) %> <% } %>
   </nav>
+  <% } %>
 </header>

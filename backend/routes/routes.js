@@ -20,10 +20,11 @@ router.get("/catalogo", async (req, res) => {
       idade: formatarIdade(item.idade),
     })),
     menu: [
-      { label: "Início", url: "/" },
-      { label: "Contactos", url: "/contatos" },
       { label: "Donativos", url: "/donativos" },
+      { label: "Contactos", url: "/contactos" },
+      { label: "Início", url: "/" },
     ],
+    admin: true,
   });
 });
 
