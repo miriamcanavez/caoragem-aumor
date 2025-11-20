@@ -7,13 +7,12 @@
   --rosa-bege: #D9B9AD;
   --preto: #333;
   --branco:white;
-  --rosa-bege-rgb: 247, 230, 223;
   --rosa-gelo-rgb: 217, 185, 173;
 }
 
 @font-face {
   font-family: "ChelseaMarketLocal";
-  src: url("../../fonts/ChelseaMarket-Regular.ttf") format("truetype");
+  src: url("/fonts/ChelseaMarket-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -22,9 +21,9 @@
 
 body {
   margin: 0;
-  background-image: url(../../images/background.png);
+  background-image: url(/images/background.png);
   font-family: "ChelseaMarketLocal";
-  src: url("../../fonts/ChelseaMarket-Regular.ttf") format("truetype");
+  src: url("/fonts/ChelseaMarket-Regular.ttf") format("truetype");
   overflow-x: hidden;
 }
 
@@ -112,7 +111,7 @@ body {
     text-align: center;
     padding: 18px 0;
    font-family: "ChelseaMarketLocal";
-    src: url("../../fonts/ChelseaMarket-Regular.ttf") format("truetype");
+    src: url("/fonts/ChelseaMarket-Regular.ttf") format("truetype");
     font-size: 15px;
     color: #333;
     box-shadow: 0 -1px 0 rgba(0,0,0,0.03);

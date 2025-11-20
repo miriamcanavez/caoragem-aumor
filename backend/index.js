@@ -1,8 +1,7 @@
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
-import navigation from "./routes/navigation.js";
-import api from "./routes/api.js";
+import routes from "./routes/routes.js";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -12,6 +11,8 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../frontend/views"));
+app.use(express.static(path.join(__dirname, "../frontend/public")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Configurações básicas
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,8 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Definição das rotas
-app.use("/", navigation);
-app.use("/api", api);
+app.use("/", routes);
 
 // Servidor
 const PORT = 3000;

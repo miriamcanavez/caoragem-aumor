@@ -1,0 +1,9 @@
+<header class="header">
+  <img src="/images/logo.png" alt="Cãoragem e Aumor" class="logo" />
+
+  <nav class="menu">
+    <% if (typeof menu !== "undefined") { %> <% menu.forEach(item => { %>
+    <a href="<%= item.url %>"><%= item.label %></a>
+    <% }) %> <% } %>
+  </nav>
+</header>
