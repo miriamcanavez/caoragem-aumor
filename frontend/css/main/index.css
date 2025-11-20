@@ -110,6 +110,14 @@ body {
     background-color: #f2f2f28a;
 }
 
+#contactos p {
+    font-family: 'Aref';
+}
+
+#contactos .local {
+    font-family: 'IndieFlower';
+}
+
 /* FOOTER */ 
 .footer {
     width: 100%;
