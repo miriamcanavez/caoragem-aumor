@@ -72,6 +72,21 @@ body {
 
 /* MAIN */ 
 
+.container .onda-mockup {
+    width: 100%;
+    height: 148px; /* altura real da imagem */
+
+    background-image: url('../../images/ondasprincipal.png');
+    background-repeat: no-repeat;
+
+    background-size: 100% auto; /* mantém altura natural e só ajusta largura */
+    background-position: top center;
+
+    position: relative;
+    margin-top: 40px;
+    z-index: 1;
+}
+/*
 .container {
     background-color: #b8d3d97a;
 }
@@ -88,20 +103,7 @@ body {
     font-family: 'IndieFlower';
 }
 
-.container .onda-mockup {
-    width: 100%;
-    height: 148px; /* altura real da imagem */
 
-    background-image: url('../../images/ondasprincipal.png');
-    background-repeat: no-repeat;
-
-    background-size: 100% auto; /* mantém altura natural e só ajusta largura */
-    background-position: top center;
-
-    position: relative;
-    margin-top: 40px;
-    z-index: 1;
-}
 
 .container .paragrafo-texto {
     font-family: 'Roboto';
@@ -123,6 +125,56 @@ body {
     object-fit: contain;
     display: flex;
     justify-content: right;
+} */
+
+.container {
+    background-color: #e0eef2;
+    padding: 60px 40px;
+}
+ 
+.paragrafo {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    font-family: "IndieFlower";
+}
+ 
+/* CARD SOBRE */
+.sobre {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+ 
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    width: 85%;
+    margin: auto;
+}
+ 
+.texto-sobre {
+    width: 55%;
+}
+ 
+.paragrafo-sobre {
+    font-family: "indieflower";
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+ 
+.paragrafo-texto {
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: "Roboto";
+}
+ 
+/* IMAGEM À DIREITA */
+.foto-sobre {
+    width: 350px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
 }
 
  /* GALERIA */
@@ -288,6 +340,22 @@ body {
 
 #donativos {
     background-color: #d9b9ad86;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 40px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#donativos h3 {
+    font-family: 'IndieFlower';
+    font-size: 80px;
+    margin: 0.2em 0;
+    padding: 6px 0; 
 }
 
 #donativos p {
@@ -302,8 +370,71 @@ body {
     margin-bottom: 0;
 }
 
-/* CONTACTOS */
+.donativos-wrapper {
+    display: flex;
+    gap: 192px; /* triplo (192px) */
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
 
+.donativos-transferencia,
+.donativos-mbway {
+    flex: 1 1 48%;
+    max-width: 600px;
+    min-width: 260px;
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagens maiores e proporcionais ao contêiner/página */
+.donativos-transferencia img,
+.donativos-mbway img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    display: block;
+    margin: 0 auto;
+}
+
+#donativos p {
+    font-size: clamp(18px, 2.5vw, 22px);
+    margin: 0 0 0.5em 0; 
+}
+
+@media (max-width: 700px) {
+    #donativos {
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .donativos-wrapper {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .donativos-transferencia,
+    .donativos-mbway {
+        max-width: 100%;
+        flex-basis: 100%;
+        min-width: 0;
+    }
+
+    .donativos-transferencia img,
+    .donativos-mbway img {
+        width: 60%;
+    }
+}
+
+/* CONTACTOS */
+/*
 #contactos {
     background-color: #f2f2f28a;
     display: flex;
@@ -316,8 +447,8 @@ body {
     padding: 150px;
 }
 
-#contactos .frase p {   margin: 0;
-
+#contactos .frase p {   
+    margin: 0;
 }
 
 #contactos p {
@@ -328,6 +459,46 @@ body {
     font-family: 'IndieFlower';
 }
 
+#contactos p:last-child {
+    margin-bottom: 0;
+} */
+
+/* Fundo geral */
+#contactos {
+    background-color: #f2f2f2;
+    padding: 60px 0;
+}
+/* Frase no topo */
+.frase p {
+    background-color: #d9b9add8;
+    padding: 12px 40px;
+    border-radius: 40px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 40px auto;
+    font-family: 'Aref';
+}
+ 
+/* Wrapper das duas colunas */
+.contactos-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}
+ 
+/* Colunas */
+.local-div {
+    text-align: center;
+    font-family: 'Aref';
+}
+ 
+/* Título das colunas */
+.local {
+    font-family: 'IndieFlower';
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+ 
 #contactos p:last-child {
     margin-bottom: 0;
 }
