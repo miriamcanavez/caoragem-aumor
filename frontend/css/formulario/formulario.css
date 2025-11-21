@@ -5,7 +5,6 @@
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: 'IndieFlower';
     src: url('../../fonts/IndieFlower-Regular.ttf') format('truetype');
@@ -13,15 +12,13 @@
     font-style: normal;
     font-display: swap;
 }
-
 body {
     margin: 0;
     background: #d9b9ad81;
     font-family: "indie flower", sans-serif;
     text-align: center;
+    padding-top: 250px; 
 }
-
-/* ====== HEADER (mantém fixed) ====== */
 .header {
     width: 100%;
     height: 160px; 
@@ -34,18 +31,16 @@ body {
     align-items: center;
     padding-left: 30px;
 }
-
 .header img.logo {
     height: 180px; 
     margin-right: 60px;
     margin-left: 100px;
 }
-
 .menu {
     display: flex;
     gap: 50px;
-    margin-left: auto;  /* empurra o menu para a direita */
-    margin-right: 200px; /* opcional: aproxima mais da borda como no mockup */
+    margin-left: auto;  
+    margin-right: 200px;
 }
 .menu a {
     font-family: 'ChelseaMarket', sans-serif;
@@ -53,54 +48,38 @@ body {
     color: black;
     text-decoration: none;
 }
-
 .onda-mockup {
-    position: absolute;    /* posiciona relativamente ao viewport (header é fixed) */
-    top: 160px;            /* = altura do header (cole a onda exatamente embaixo) */
+    position: absolute;    
+    top: 160px;            
     left: 0;
     width: 100%;
-    height: 90px;          /* ajuste fino: 90px é um bom ponto de partida */
+    height: 90px;         
     background-image: url('../../images/ondas.png');
     background-repeat: repeat-x;
-    background-size: auto 90px;   /* força a altura da imagem para 90px, mantém proporção */
+    background-size: auto 90px;   
     background-position: top left;
-    z-index: 900;          /* abaixo do header, acima do conteúdo */
+    z-index: 900;          
 }
-
-/* ====== CONTEÚDO - empurra para baixo (header + onda) ======
-   IMPORTANTE: padding-top deve ser = header.height + onda.height */
-body {
-    background: #ead8d3;
-    margin: 0;
-    padding-top: 250px; /* 160 (header) + 90 (onda) = 250 */
-}
-
-/* ====== TÍTULO "BENTO" ======
-   Garante que o título não fique por cima das ondas */
 .pet-name {
     font-family: 'IndieFlower', cursive;
     font-size: 70px;
-    margin-top: 30px;     /* conteúdo já foi empurrado; distancia extra evita overlap */
+    margin-top: 30px;     
     text-align: left;
     margin-left: 200px;
     width: fit-content;
-    z-index: 1;           /* manter abaixo da onda se necessário */
+    z-index: 1;       
 }
-
-/* GALERIA */
 .carousel-container {
     position: relative;
     width: 80%;
     margin: auto;
     margin-top: 20px;
 }
-
 .carousel {
     display: flex;
     overflow: hidden;
     border-radius: 20px;
 }
-
 .slide {
     width: 100%;
     height: 400px;
@@ -108,11 +87,9 @@ body {
     display: none;
     border-radius: 20px;
 }
-
 .slide.active {
     display: block;
 }
-
 .arrow {
     position: absolute;
     top: 50%;
@@ -125,14 +102,11 @@ body {
     font-size: 24px;
     cursor: pointer;
 }
-
 .left { left: -30px; }
 .right { right: -30px; }
-
 .dots {
     margin-top: 10px;
 }
-
 .dot {
     height: 12px;
     width: 12px;
@@ -143,40 +117,30 @@ body {
     cursor: pointer;
     opacity: 0.4;
 }
-
 .dot.active {
     opacity: 1;
 }
-
-/* Wrapper das duas colunas */
 .info-form-wrapper {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 50px; /* espaçamento entre infos e formulário */
+    gap: 50px; 
     margin-top: 60px;
     padding: 0 40px;
     font-family: 'ChelseaMarket', sans-serif;
 }
-
-/* Coluna esquerda */
 .left-column {
     width: 30%;
     font-family: 'ChelseaMarket', sans-serif;
 }
-
 .info-section {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
-
-/* Coluna direita */
 .right-column {
-    width: 50%; /* espaço maior para o formulário */
+    width: 50%;
 }
-
-/* Caixas de info */
 .info-box {
     background: #D9D9D9;
     padding: 30px;
@@ -188,17 +152,15 @@ body {
 .info-box.description {
     height: 380px;
 }
-
 .info-box {
-    height: 420px; /* 👈 AJUSTE PARA A ALTURA EXATA */
+    height: 420px;
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* centraliza vertical */
-    align-items: center;      /* centraliza horizontal */
+    justify-content: center; 
+    align-items: center;     
     text-align: center;
-    padding: 30px;            /* padding leve só para respirar */
+    padding: 30px;         
 }
-/* Formulário */
 .form-card {
     background: #D9D9D9;
     padding: 40px 80px;
@@ -208,7 +170,6 @@ body {
     flex-direction: column;
     gap: 22px;
 }
-
 .form-card h2 {
     font-family: 'IndieFlower', sans-serif; /* fonte que forneceste */
     font-size: 45px;
@@ -217,15 +178,11 @@ body {
     text-align: center;
     font-weight: normal;
 }
-
-/* Labels */
 .form-card label {
     font-size: 20px;
     font-weight: normal;
     text-align: left;
 }
-
-/* Inputs */
 .form-card input,
 .form-card textarea {
     width: 100%;
@@ -237,14 +194,10 @@ body {
     background: #f9f9f9;
     box-shadow: inset 1px 2px 5px rgba(0,0,0,0.2);
 }
-
-/* Área de texto */
 .form-card textarea {
     resize: none;
     height: 120px;
 }
-
-/* Botão */
 .form-card button {
     background: #B7C3AD;
     width: 200px;
@@ -258,26 +211,21 @@ body {
     box-shadow: 2px 3px 5px rgba(0,0,0,0.25);
     font-family: 'IndieFlower', sans-serif;
 }
-
 .form-card button:hover {
     opacity: 0.8;
 }
-
-/* ONDA FINAL — usando a mesma imagem, virada */
 .onda-fim {
     width: 100%;
-    height: 90px;                     /* altura da onda; ajusta se necessário */
+    height: 90px;                    
     background-image: url('../../images/ondas.png');
     background-repeat: repeat-x;
-    background-size: auto 90px;       /* força altura, preserva proporções */
+    background-size: auto 90px;       
     background-position: top center;
-    transform: rotate(180deg);        /* INVERTE a imagem sem criar arquivo novo */
+    transform: rotate(180deg);       
     transform-origin: center;
-    margin-top: 150px;                 /* espaço entre conteúdo e onda - ajusta */
+    margin-top: 150px;                
     display: block;
 }
-
-/* FOOTER */
 .footer {
     width: 100%;
     background: #dbe7e7;
