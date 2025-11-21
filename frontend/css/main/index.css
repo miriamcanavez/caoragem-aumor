@@ -135,6 +135,7 @@ body {
     justify-content: center;
     padding: 80px;
     font-size: 50px;
+    margin: 0;
  }
 
 #carrossel {
@@ -151,7 +152,9 @@ body {
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 100px 0;
+    background-color: #333;
+    border-color: #333;
 }
 
 .carrossel-track { 
@@ -221,10 +224,12 @@ body {
 
 #carrossel .carrossel-prev {
     left: 16px;
+    margin: 150px;
 }
 
 #carrossel .carrossel-next {
     right: 16px;
+    margin: 150px;
 }
 
 #carrossel .carrossel-prev .seta-antes,
@@ -259,6 +264,15 @@ body {
     font-size: x-large;
     text-decoration: none;
     width: fit-content;
+    color: black;
+}
+
+.botao-catalogo::after {
+    color:black;
+}
+
+.botao-catalogo:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 /* DONATIVOS */
@@ -275,10 +289,26 @@ body {
     font-weight: bold;
 }
 
+#donativos p:last-child {
+    margin-bottom: 0;
+}
+
 /* CONTACTOS */
 
 #contactos {
     background-color: #f2f2f28a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.local-div {
+    flex-direction: column;
+    padding: 150px;
+}
+
+#contactos .frase p {   margin: 0;
+
 }
 
 #contactos p {
@@ -287,6 +317,10 @@ body {
 
 #contactos .local {
     font-family: 'IndieFlower';
+}
+
+#contactos p:last-child {
+    margin-bottom: 0;
 }
 
 /* FOOTER */ 
