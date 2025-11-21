@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'ChelseaMarket';
+    src: url('../../fonts/ChelseaMarket-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IndieFlower';
+    src: url('../../fonts/IndieFlower-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aref';
+    src: url('../../fonts/ArefRuqaa-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../fonts/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* FOOTER */
+
+.footer {
+    width: 100%;
+    background: #dbe7e7;
+    text-align: center;
+    padding: 18px 0;
+    font-family: 'ChelseaMarket', sans-serif;
+    font-size: 15px;
+    color: #333;
+    box-shadow: 0 -1px 0 rgba(0,0,0,0.03);
+}
