@@ -41,11 +41,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 160px - 60px); /* altura útil */
+    width: 100%;
+    height: calc(100vh - 160px - 60px);
     background-image: url("../../images/background1.png");
-    background-repeat: repeat-y;
-    background-size: auto 70vh; /* fica certinha dentro da área */
-    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center top;
+    position: relative;
+    background-color: #F2F2F2;
 }
 .login-box {
     background: #D9D9D9;
