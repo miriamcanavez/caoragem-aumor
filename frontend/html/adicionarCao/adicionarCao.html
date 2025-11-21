@@ -5,9 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Cão</title>
+    <link rel="stylesheet" href="../../css/adicionarCao/adicionarCao.css">
 </head>
 
 <body>
-    
+    <!-- HEADER -->
+    <header class="header">
+        <img src="../../images/logo.png" class="logo">
+        <a href="CATÁLOGO ADMIN" class="botao-back" role="button">X</a>
+    </header>
+
+    <!-- MAIN -->
+
+    <div class="imagens">
+
+    </div>
+
+    <div>
+        <label for="nome" class="titulo">Nome do Animal:</label>
+        <input type="text" class="resposta">
+    </div>
+
+    <div>
+        <label for="idade" class="titulo">Idade (Meses):</label>
+        <input type="number" value="0" class="resposta">
+    </div>
+
+    <div>
+        <label for="sexo" class="titulo">Sexo:</label>
+        <select class="resposta">
+            <option value="padrão">Por definir</option>
+            <option value="macho">Macho</option>
+            <option value="fêmea">Fêmea</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="porte" class="titulo">Porte:</label>
+        <select class="resposta">
+            <option value="padrão">Por definir</option>
+            <option value="pequeno">Pequeno</option>
+            <option value="médio">Médio</option>
+            <option value="grande">Grande:</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="info-médicas" class="titulo">Informações Médicas:</label>
+        <input type="text" placeholder="Informações Médicas pertinentes" class="resposta" class="info-medicas">
+    </div>
+
+    <div>
+        <label for="info-pessoais" class="titulo">Descrição do Animal:</label>
+        <input type="text" placeholder="Descrição da personalidade do Animal" class="resposta" class="info-pessoais">
+    </div>
+
+    <!-- BOTÕES -->
+
+    <div class="botao-adicionar">
+        <button type="submit">Adicionar</button> <!-- este botão tem de adicionar à bd -->
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        © 2025 Cãoragem e Aumor. Todos os direitos reservados.
+    </footer>
 </body>
 </html>
