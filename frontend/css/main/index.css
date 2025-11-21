@@ -172,17 +172,24 @@ body {
     width: 90%;
     position: relative;
     display: flex;
+    justify-content: center; 
+    margin: 0 auto;
+    overflow: hidden; 
 }
 
 .carrossel-track {
-    display: inline-flex; /* ESSENCIAL: evita quebra */
+    display: flex; 
     transition: transform .4s ease;
-    white-space: nowrap; /* garante linha única */
+    white-space: nowrap; 
+    will-change: transform; 
+    padding: 10px 20px;
+    width: max-content;
 }
 .slide {
     width: 260px;
-    flex: 0 0 260px;     /* ESSA linha impede que ele estique ou encolha */
+    flex: 0 0 260px;     
     margin: 0 14px;
+    box-sizing: border-box;
 }
 .slide-img {
     width: 100%;
@@ -191,15 +198,20 @@ body {
     border-radius: 20px 20px 0 0;
     background-size: cover;
     background-position: center;
+    display: block;
 }
 
 .slide-info {
     padding: 15px;
     text-align: center;
-    font-family: "ChelseaMarket";
-    font-size: 18px;
+    font-family: 'Areq';
+    font-size: 25px;
     border-radius: 0 0 20px 20px;
     color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90px; 
 }
 
 .slide:nth-child(odd) .slide-info {
@@ -232,6 +244,13 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.carrossel-prev:disabled,
+.carrossel-next:disabled {
+        opacity: .4;
+        cursor: default;
+        box-shadow: none;
+}
  
 #carrossel .carrossel-prev,
 #carrossel .carrossel-next {
@@ -239,6 +258,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     z-index: 1001;
+    box-shadow: 0 2px 6px rgba(0,0,0,.25);
 }
  
 #carrossel .carrossel-prev {
@@ -270,6 +290,29 @@ body {
  
 #carrossel .carrossel-next .seta-depois {
     transform: rotate(315deg);
+}
+
+/* RESPONSIVIDADE DO CARROSSEL */
+@media (max-width: 1100px) {
+    .slide { width: 230px; flex: 0 0 230px; }
+    .slide-img { height: 200px; }
+}
+@media (max-width: 900px) {
+    .slide { width: 200px; flex: 0 0 200px; }
+    .slide-img { height: 180px; }
+    #carrossel h3 { font-size: 42px; padding: 40px 0; }
+}
+@media (max-width: 650px) {
+    .slide { width: 170px; flex: 0 0 170px; margin: 0 10px; }
+    .slide-img { height: 150px; }
+    .slide-info { font-size: 16px; min-height: 80px; }
+    #carrossel-container { width: 95%; }
+}
+@media (max-width: 480px) {
+    .slide { width: 150px; flex: 0 0 150px; }
+    .slide-img { height: 130px; }
+    #carrossel h3 { font-size: 34px; padding: 30px 0; }
+    .carrossel-prev, .carrossel-next { width: 42px; height: 42px; }
 }
  
 .botao-catalogo {
