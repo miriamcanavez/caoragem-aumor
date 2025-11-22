@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/css/catalogo/catalogo.css" />
 
-<%- include("partials/header") %>
+<%- include("partials/headerCatalogo") %>
 
 <h1 class="titulo">CATÁLOGO</h1>
 
@@ -15,7 +15,12 @@
     </div>
 
     <% if (admin) { %>
-    <button class="btn-editar">EDITAR</button>
+    <button
+      class="btn-editar"
+      onclick="location.assign('/registarCao/<%= caozinho.id_cao %>')"
+    >
+      EDITAR
+    </button>
     <% } %>
   </div>
   <% }) %>

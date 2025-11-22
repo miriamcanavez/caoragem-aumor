@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/catalogo", async (req, res) => {
   const db = await connectDB();
   const caes = await db.all(`
-    SELECT c.nome, c.idade, c.sexo, ic.path_fotos 
+    SELECT c.id_cao, c.nome, c.idade, c.sexo, ic.path_fotos 
     FROM caes c 
     INNER JOIN imagens_caes ic 
       ON c.id_cao = ic.id_cao 
@@ -25,6 +25,31 @@ router.get("/catalogo", async (req, res) => {
       { label: "Início", url: "/" },
     ],
     admin: true,
+  });
+});
+
+router.get("/registarCao", (req, res) => {
+  res.render("registarCao", {
+    cao: {
+      fotos: [{}, {}, {}, {}, {}, {}],
+    },
+  });
+});
+
+router.get("/registarCao/:id", async (req, res) => {
+  const db = await connectDB();
+  const cao = await db.all(`
+    SELECT c.id_cao, c.nome, c.idade, c.sexo, ic.path_fotos 
+    FROM caes c 
+    INNER JOIN imagens_caes ic 
+      ON c.id_cao = ic.id_cao 
+    WHERE c.id_cao = ${req.params.id} AND ic.perfil = FALSE
+  `);
+
+  res.render("registarCao", {
+    cao: {
+      fotos: cao,
+    },
   });
 });
 

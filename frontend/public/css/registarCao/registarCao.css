@@ -1,0 +1,279 @@
+@font-face {
+    font-family: 'ChelseaMarket';
+    src: url('/fonts/ChelseaMarket-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IndieFlower';
+    src: url('/fonts/IndieFlower-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aref';
+    src: url('/fonts/ArefRuqaa-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* HEADER */ 
+
+.header {
+    width: 100%;
+    height: 160px; 
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.header img.logo {
+    height: 180px; 
+    margin-right: 60px;
+    margin-left: 100px;
+}
+
+.header a {
+    background-color: #9fa692c4;
+    font-family: 'IndieFlower';
+    font-size: 40px;
+    border-radius: 100%;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+    margin-left: auto;
+    margin-right: 180px;
+}
+
+/* MAIN */
+
+.onda-mockup {
+    position: absolute;    /* posiciona relativamente ao viewport (header é fixed) */
+    top: 160px;            /* = altura do header (cole a onda exatamente embaixo) */
+    left: 0;
+    width: 100%;
+    height: 90px;          /* ajuste fino: 90px é um bom ponto de partida */
+    background-image: url('/images/ondas.png');
+    background-repeat: repeat-x;
+    background-size: auto 90px;   /* força a altura da imagem para 90px, mantém proporção */
+    background-position: top left;
+    z-index: 900;          /* abaixo do header, acima do conteúdo */
+}
+
+.botao-adicionar {
+    font-family: 'IndieFlower';
+    background-color: #9fa692c4;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 0 50px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+/* ====== CONTEÚDO - empurra para baixo (header + onda) ======
+   IMPORTANTE: padding-top deve ser = header.height + onda.height */
+body {
+    background: #ead8d3;
+    margin: 0;
+    padding-top: 250px; /* 160 (header) + 90 (onda) = 250 */
+}
+
+/* INFO */
+
+.titulo {
+    font-family: 'ChelseaMarket';
+}
+
+/* IMAGENS (Flexbox version) */
+
+.imagens-container {
+    padding: 50px;
+    border: 1px solid black;
+    border-radius: 60px;
+    background-color: lightgray;
+    margin: 40px;
+}
+
+.imagens-container h1 {
+    font-family: 'ChelseaMarket';
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.imagens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+/* Each tile: take approximately 1/3 of the container minus gaps */
+.imagem-foto,
+.imagem-empty {
+    flex: 1 1 calc((100% - 32px) / 3); /* 3 per row; 32px = 2 * gap(16px) */
+    max-width: calc((100% - 32px) / 3);
+    box-sizing: border-box;
+    aspect-ratio: 4 / 2;
+    background-color: #d9b9ad7c;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* make the photo container a positioned element so we can overlay the trash icon */
+.imagem-foto {
+    position: relative;
+    overflow: hidden;
+}
+
+.imagem-foto img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* overlay cinza que aparece no hover */
+.imagem-foto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 160ms ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.imagem-foto:hover::before {
+    opacity: 1;
+}
+
+/* ícone do lixo centralizado usando ::after */
+.imagem-foto::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    background-image: url('/images/lixo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 160ms ease-in-out;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.imagem-foto:hover::after {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* trash icon: centralizado, ocupa 50% do card, aparece no hover */
+
+.imagem-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+}
+
+/* Mobile: stack to 1 per row */
+@media (max-width: 600px) {
+    .imagens {
+        gap: 12px;
+        padding: 12px;
+    }
+    .imagem-foto,
+    .imagem-empty {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* ITEMS */
+
+.input-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0px 40px 20px 40px;
+}
+
+.input-item input,
+.input-item select,
+.input-item textarea {
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: lightgray;
+    padding: 12px;
+}
+
+
+/* BOTÕES */
+
+.botoes-acao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 40px;
+}
+
+/* ONDA FINAL — usando a mesma imagem, virada */
+
+.onda-fim {
+    width: 100%;
+    height: 90px;                     /* altura da onda; ajusta se necessário */
+    background-image: url('/images/ondas.png');
+    background-repeat: repeat-x;
+    background-size: auto 90px;       /* força altura, preserva proporções */
+    background-position: top center;
+    transform: rotate(180deg);        /* INVERTE a imagem sem criar arquivo novo */
+    transform-origin: center;
+    margin-top: 150px;                 /* espaço entre conteúdo e onda - ajusta */
+    display: block;
+}
+
+/* FOOTER */
+
+.footer {
+    width: 100%;
+    background: #dbe7e7;
+    text-align: center;
+    padding: 18px 0;
+    font-family: 'ChelseaMarket', sans-serif;
+    font-size: 15px;
+    color: #333;
+    box-shadow: 0 -1px 0 rgba(0,0,0,0.03);
+}

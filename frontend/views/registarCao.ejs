@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="/css/registarCao/registarCao.css" />
+
+<%- include("partials/headerRegistarCao") %>
+
+<div class="onda-mockup"></div>
+
+<div class="imagens-container">
+  <h1>Imagens</h1>
+  <div class="imagens">
+    <% cao.fotos.forEach(imagem => { %>
+    <div class="<%= imagem.path_fotos ? 'imagem-foto' : 'imagem-empty' %>">
+      <% if (imagem.path_fotos) { %>
+      <img src="/uploads/caes/fotos/<%= imagem.path_fotos %>" />
+      <% } else { %>
+      <img src="/images/camera.png" />
+      <% } %>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+<div class="input-item">
+  <label for="nome" class="titulo">Nome do Animal:</label>
+  <input type="text" class="resposta" />
+</div>
+
+<div class="input-item">
+  <label for="idade" class="titulo">Idade (Meses):</label>
+  <input type="number" value="0" class="resposta" />
+</div>
+
+<div class="input-item">
+  <label for="sexo" class="titulo">Sexo:</label>
+  <select class="resposta">
+    <option value="padrão">Por definir</option>
+    <option value="macho">Macho</option>
+    <option value="fêmea">Fêmea</option>
+  </select>
+</div>
+
+<div class="input-item">
+  <label for="porte" class="titulo">Porte:</label>
+  <select class="resposta">
+    <option value="padrão">Por definir</option>
+    <option value="pequeno">Pequeno</option>
+    <option value="médio">Médio</option>
+    <option value="grande">Grande:</option>
+  </select>
+</div>
+
+<div class="input-item">
+  <label for="info-médicas" class="titulo">Informações Médicas:</label>
+  <textarea
+    rows="7"
+    placeholder="Informações Médicas pertinentes"
+    class="resposta"
+    class="info-medicas"
+  ></textarea>
+</div>
+
+<div class="input-item">
+  <label for="info-pessoais" class="titulo">Descrição do Animal:</label>
+  <textarea
+    rows="10"
+    placeholder="Descrição da personalidade do Animal"
+    class="resposta"
+    class="info-pessoais"
+  ></textarea>
+</div>
+
+<!-- BOTÕES -->
+
+<div class="botoes-acao">
+  <button type="submit" class="botao-adicionar">Adicionar</button>
+</div>
+
+<div class="onda-fim"></div>
+
+<%- include("partials/footer") %>
