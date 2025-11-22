@@ -243,11 +243,58 @@ body {
 
 /* BOTÕES */
 
+
+/* BOTÕES */
+
 .botoes-acao {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     margin: 40px;
+}
+
+.botoes-acao.editar {
+    justify-content: space-between;
+}
+
+.botoes-acao.adicionar {
+    justify-content: center;
+}
+
+.botoes-acao-direita {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.checkbox-adotado,
+.botao-guardar,
+.botao-apagar {
+    font-family: 'IndieFlower';
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 0 50px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.checkbox-adotado label {
+    cursor: pointer;
+}
+
+.checkbox-adotado-input {
+    width: 20px;
+    height: 15px;
+}
+
+.botao-apagar {
+    background-color: #d9b9add8;
+}
+
+.checkbox-adotado,
+.botao-guardar {
+    background-color: #9fa692c4;
 }
 
 /* ONDA FINAL — usando a mesma imagem, virada */

@@ -21,30 +21,38 @@
 
 <div class="input-item">
   <label for="nome" class="titulo">Nome do Animal:</label>
-  <input type="text" class="resposta" />
+  <input 
+    type="text" 
+    class="resposta"
+    value="<%= cao.nome %>"
+  />
 </div>
 
 <div class="input-item">
   <label for="idade" class="titulo">Idade (Meses):</label>
-  <input type="number" value="0" class="resposta" />
+  <input 
+    type="number" 
+    class="resposta"
+    value="<%= cao.idade %>"
+  />
 </div>
 
 <div class="input-item">
   <label for="sexo" class="titulo">Sexo:</label>
   <select class="resposta">
-    <option value="padrão">Por definir</option>
-    <option value="macho">Macho</option>
-    <option value="fêmea">Fêmea</option>
+    <option value="padrão" <%= !cao.sexo ? 'selected' : '' %>>Por definir</option>
+    <option value="macho" <%= cao.sexo === 'Macho' ? 'selected' : '' %>>Macho</option>
+    <option value="fêmea" <%= cao.sexo === 'Fêmea' ? 'selected' : '' %>>Fêmea</option>
   </select>
 </div>
 
 <div class="input-item">
   <label for="porte" class="titulo">Porte:</label>
   <select class="resposta">
-    <option value="padrão">Por definir</option>
-    <option value="pequeno">Pequeno</option>
-    <option value="médio">Médio</option>
-    <option value="grande">Grande:</option>
+    <option value="padrão" <%= !cao.porte ? 'selected' : '' %>>Por definir</option>
+    <option value="pequeno" <%= cao.porte === 'Pequeno' ? 'selected' : '' %>>Pequeno</option>
+    <option value="médio" <%= cao.porte === 'Médio' ? 'selected' : '' %>>Médio</option>
+    <option value="grande" <%= cao.porte === 'Grande' ? 'selected' : '' %>>Grande</option>
   </select>
 </div>
 
@@ -55,7 +63,7 @@
     placeholder="Informações Médicas pertinentes"
     class="resposta"
     class="info-medicas"
-  ></textarea>
+  ><%= cao.info_medica %></textarea>
 </div>
 
 <div class="input-item">
@@ -65,13 +73,34 @@
     placeholder="Descrição da personalidade do Animal"
     class="resposta"
     class="info-pessoais"
-  ></textarea>
+  ><%= cao.info_pessoal %></textarea>
 </div>
 
 <!-- BOTÕES -->
 
-<div class="botoes-acao">
+<div class="botoes-acao <%= cao.id_cao ? 'editar' : 'adicionar' %>">
+  <% if (cao.id_cao) { %>
+  <div class="checkbox-adotado">
+    <input 
+      type="checkbox" 
+      name="adotado" 
+      class="checkbox-adotado-input"
+      <%= cao.status ? 'checked' : '' %>
+    />
+    <label for="adotado">Adotado</label>
+    <!-- este tem de mudar o status na bd -->
+  </div>
+
+  <div class="botoes-acao-direita">
+    <button type="submit" class="botao-guardar">Guardar</button>
+    <!-- este botão tem que modificar os elementos na bd -->
+
+    <button type="submit" class="botao-apagar">Apagar</button>
+    <!-- este botão tem que criar um alert a perguntar se quer mesmo apagar o animal -->
+  </div>
+  <% } else { %>
   <button type="submit" class="botao-adicionar">Adicionar</button>
+  <% } %>
 </div>
 
 <div class="onda-fim"></div>
