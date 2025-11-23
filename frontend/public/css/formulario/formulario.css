@@ -1,0 +1,238 @@
+@font-face {
+    font-family: 'ChelseaMarket';
+    src: url('../../fonts/ChelseaMarket-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'IndieFlower';
+    src: url('../../fonts/IndieFlower-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+body {
+    margin: 0;
+    background: #d9b9ad81;
+    font-family: "indie flower", sans-serif;
+    text-align: center;
+    padding-top: 250px; 
+}
+.header {
+    width: 100%;
+    height: 160px; 
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+.header img.logo {
+    height: 180px; 
+    margin-right: 60px;
+    margin-left: 100px;
+}
+.menu {
+    display: flex;
+    gap: 50px;
+    margin-left: auto;  
+    margin-right: 200px;
+}
+.menu a {
+    font-family: 'ChelseaMarket', sans-serif;
+    font-size: 30px;
+    color: black;
+    text-decoration: none;
+}
+.onda-mockup {
+    position: absolute;    
+    top: 160px;            
+    left: 0;
+    width: 100%;
+    height: 90px;         
+    background-image: url('../../images/ondas.png');
+    background-repeat: repeat-x;
+    background-size: auto 90px;   
+    background-position: top left;
+    z-index: 900;          
+}
+.pet-name {
+    font-family: 'IndieFlower', cursive;
+    font-size: 70px;
+    margin-top: 30px;     
+    text-align: left;
+    margin-left: 200px;
+    width: fit-content;
+    z-index: 1;       
+}
+.carousel-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+.carousel {
+    display: flex;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.slide {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: none;
+    border-radius: 20px;
+}
+.slide.active {
+    display: block;
+}
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+}
+.left { left: -30px; }
+.right { right: -30px; }
+.dots {
+    margin-top: 10px;
+}
+.dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #D9D9D9;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+    opacity: 0.4;
+}
+.dot.active {
+    opacity: 1;
+}
+.info-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px; 
+    margin-top: 60px;
+    padding: 0 40px;
+    font-family: 'ChelseaMarket', sans-serif;
+}
+.left-column {
+    width: 30%;
+    font-family: 'ChelseaMarket', sans-serif;
+}
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.right-column {
+    width: 50%;
+}
+.info-box {
+    background: #D9D9D9;
+    padding: 30px;
+    border-radius: 25px;
+    font-size: 20px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+    font-family: 'ChelseaMarket', sans-serif;
+}
+.info-box.description {
+    height: 380px;
+}
+.info-box {
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;
+    padding: 30px;         
+}
+.form-card {
+    background: #D9D9D9;
+    padding: 40px 80px;
+    border-radius: 25px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+.form-card h2 {
+    font-family: 'IndieFlower', sans-serif; /* fonte que forneceste */
+    font-size: 45px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: normal;
+}
+.form-card label {
+    font-size: 20px;
+    font-weight: normal;
+    text-align: left;
+}
+.form-card input,
+.form-card textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    font-size: 18px;
+    outline: none;
+    background: #f9f9f9;
+    box-shadow: inset 1px 2px 5px rgba(0,0,0,0.2);
+}
+.form-card textarea {
+    resize: none;
+    height: 120px;
+}
+.form-card button {
+    background: #B7C3AD;
+    width: 200px;
+    align-self: center;
+    padding: 12px 0;
+    border-radius: 20px;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 3px 5px rgba(0,0,0,0.25);
+    font-family: 'IndieFlower', sans-serif;
+}
+.form-card button:hover {
+    opacity: 0.8;
+}
+.onda-fim {
+    width: 100%;
+    height: 90px;                    
+    background-image: url('../../images/ondas.png');
+    background-repeat: repeat-x;
+    background-size: auto 90px;       
+    background-position: top center;
+    transform: rotate(180deg);       
+    transform-origin: center;
+    margin-top: 150px;                
+    display: block;
+}
+.footer {
+    width: 100%;
+    background: #dbe7e7;
+    text-align: center;
+    padding: 18px 0;
+    font-family: 'ChelseaMarket', sans-serif;
+    font-size: 15px;
+    color: #333;
+    box-shadow: 0 -1px 0 rgba(0,0,0,0.03);
+}

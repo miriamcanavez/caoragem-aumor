@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/css/formulario/formulario.css" />
+
+<%- include("partials/headerMenu") %>
+
+<div class="onda-mockup"></div>
+
+<h1 id="nomeAnimal" class="pet-name"><%= cao.nome %></h1>
+
+<section class="carousel-container">
+  <button class="arrow left" onclick="mudarImagem(-1)">&#8592;</button>
+
+  <div class="carousel">
+    <% cao.fotos.forEach(imagem => { %>
+    <img src="/uploads/caes/fotos/<%= imagem.path_fotos %>" class="slide" />
+    <% }) %>
+  </div>
+
+  <button class="arrow right" onclick="mudarImagem(1)">&#8594;</button>
+
+  <div class="dots">
+    <span onclick="irPara(0)" class="dot active"></span>
+    <span onclick="irPara(1)" class="dot"></span>
+    <span onclick="irPara(2)" class="dot"></span>
+  </div>
+</section>
+
+<section class="info-form-wrapper">
+  <div class="left-column">
+    <section class="info-section">
+      <div class="info-box">
+        <p>Idade: <%= cao.idade %></p>
+        <p>Sexo: <%= cao.sexo %></p>
+        <p>Porte: <%= cao.porte %></p>
+        <p><%= cao.info_medica %></p>
+      </div>
+
+      <div class="info-box description">
+        <p><%= cao.info_pessoal %></p>
+      </div>
+    </section>
+  </div>
+
+  <div class="right-column">
+    <form class="form-card">
+      <h2>FORMULÁRIO</h2>
+
+      <label>Nome Completo:</label>
+      <input type="text" required />
+
+      <label>Localização:</label>
+      <input type="text" required />
+
+      <label>Telefone:</label>
+      <input type="text" required />
+
+      <label>Email:</label>
+      <input type="email" required />
+
+      <label>Observações:</label>
+      <textarea rows="5"></textarea>
+
+      <button type="submit">SUBMETER</button>
+    </form>
+  </div>
+</section>
+
+<div class="onda-fim"></div>
+<%- include("partials/footer") %>
+
+<script src="/js/formulario/formulario.js"></script>

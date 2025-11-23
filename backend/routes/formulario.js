@@ -1,18 +1,9 @@
 import express from "express";
 import connectDB from "../db.js";
 import { formatarIdade } from "../utils/formatarIdade.js";
-
 const router = express.Router();
 
-router.get("/registarCao", (req, res) => {
-  res.render("registarCao", {
-    cao: {
-      fotos: [{}, {}, {}, {}, {}, {}],
-    },
-  });
-});
-
-router.get("/registarCao/:id", async (req, res) => {
+router.get("/formulario/:id", async (req, res) => {
   const db = await connectDB();
 
   const result = await db.all(
@@ -27,14 +18,10 @@ router.get("/registarCao/:id", async (req, res) => {
   );
 
   if (!result || result.length === 0) {
-    return res.render("registarCao", { cao: null });
+    return res.render("catalogo");
   }
 
   const fotos = result.map((r) => ({ path_fotos: r.path_fotos }));
-
-  while (fotos.length < 6) {
-    fotos.push({ path_fotos: "" });
-  }
 
   const caoData = {
     id_cao: result[0].id_cao,
@@ -49,8 +36,15 @@ router.get("/registarCao/:id", async (req, res) => {
     fotos: fotos,
   };
 
-  res.render("registarCao", {
+  res.render("formulario", {
     cao: caoData,
+    menu: [
+      { label: "Início", url: "/" },
+      { label: "Donativos", url: "/#donativos" },
+      { label: "Contactos", url: "/#contactos" },
+      { label: "Catálogo", url: "/catalogo" },
+    ],
+    admin: false,
   });
 });
 
