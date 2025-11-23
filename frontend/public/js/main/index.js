@@ -1,0 +1,1 @@
+$(".carrossel-stick").slick();

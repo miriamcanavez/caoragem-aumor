@@ -1,0 +1,131 @@
+<!-- Add the slick-theme.css if you want default styling -->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"
+/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"
+/>
+<link rel="stylesheet" href="/css/main/index.css" />
+
+<%- include("partials/headerMenu") %>
+
+<!-- MAIN -->
+<div class="container">
+  <div class="onda-mockup"></div>
+
+  <div class="container-content">
+    <p class="paragrafo">
+      "Adotar é amar sem rótulos, sem raça e sem preconceito"
+    </p>
+
+    <div class="sobre">
+      <div class="texto-sobre">
+        <p class="paragrafo-sobre">SOBRE NÓS</p>
+
+        <p class="paragrafo-texto">
+          Olá! Somos a <strong>Miriam</strong>, a <strong>Malu</strong> e a
+          <strong>Maria</strong> — três amigas unidas por uma paixão comum: os
+          cães. Acreditamos que cada cão merece uma segunda oportunidade, um
+          colo quente e uma vida cheia de amor (ou melhor, aumor). No nosso
+          canil, cada história importa. Cuidamos, acolhemos e reabilitamos cães
+          que precisam de uma nova família, sempre com o coração aberto e a
+          convicção de que a coragem e o amor podem transformar vidas — tanto a
+          deles como as nossas. Se acredita, como nós, que o amor verdadeiro tem
+          quatro patas, venha conhecer o
+          <span style="color: #d9b9ad">Cãoragem e Aumor</span>.
+        </p>
+      </div>
+
+      <img
+        class="foto-sobre"
+        src="/images/fotonossa.png"
+        alt="Foto das três fundadoras"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- GALERIA -->
+<section id="carrossel" class="carrossel">
+  <h3>ENCONTRA AQUI O TEU NOVO CÃOMPANHEIRO</h3>
+  <div class="carousel-wrapper">
+    <div
+      class="carrossel-stick"
+      data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'
+    >
+      <% caes.forEach(cao => { %>
+      <div>
+        <div
+          class="slide-img"
+          style="
+            background-image: url('/uploads/caes/fotos/<%= cao.path_fotos %>');
+          "
+        ></div>
+        <div class="slide-info">
+          <p><%= cao.nome %> | <%= cao.idade %><br /><%= cao.sexo %></p>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <a class="botao-catalogo" href="/catalogo" role="button">Catálogo</a>
+</section>
+
+<!-- DONATIVOS -->
+<div id="donativos">
+  <h3>DONATIVOS</h3>
+
+  <div class="donativos-wrapper">
+    <div class="donativos-transferencia">
+      <img src="/images/transferência.png" alt="transferência" />
+      <p class="paragrafo-donativos">IBAN</p>
+      <p>PT500035 0158 0001 1405 6304 1</p>
+    </div>
+
+    <div class="donativos-mbway">
+      <img src="/images/mbway.png" alt="mbway" />
+      <p class="paragrafo-donativos">TELEMÓVEL</p>
+      <p>919 999 000</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACTOS -->
+<div id="contactos">
+  <div class="frase">
+    <p>
+      Tem um cão resgatado, abandonado ou em situação de risco? Entre em
+      contacto connosco.
+    </p>
+  </div>
+
+  <div class="contactos-wrapper">
+    <div class="local-div">
+      <p class="local">CONTACTOS</p>
+      <p>+351 919 999 000</p>
+      <p>caoragemaumor@gmail.com</p>
+    </div>
+
+    <div class="local-div">
+      <p class="local">ENDEREÇO</p>
+      <p>Rua dos Patudos Felizes, nº 42</p>
+      <p>4480-219 Vila Cãoragem</p>
+      <p>Portugal</p>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script
+  type="text/javascript"
+  src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"
+></script>
+<script src="/js/main/index.js"></script>
