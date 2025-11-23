@@ -23,6 +23,7 @@ router.get("/", async (req, res) => {
       { label: "Contactos", url: "#contactos" },
       { label: "Catálogo", url: "/catalogo" },
     ],
+    admin: false,
   });
 });
 

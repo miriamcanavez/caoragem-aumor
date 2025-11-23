@@ -161,3 +161,5 @@ VALUES (8, 'Luca/1.png', 0),
     (8, 'Luca/3.png', 0),
     (8, 'Luca/4.png', 0),
     (8, 'Luca/perfil.png', 1);
+INSERT INTO utilizadores (username, password)
+VALUES ('admin', '123');

@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/css/login/login.css" />
+
+<%- include("partials/headerMenu") %>
+
+<div class="login-container">
+  <form id="loginForm" class="login-box" method="POST" action="/login">
+    <h2>LOGIN</h2>
+
+    <label>Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      class="<%= typeof error !== 'undefined' && error ? 'error' : '' %>"
+      required
+    />
+
+    <label>Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="<%= typeof error !== 'undefined' && error ? 'error' : '' %>"
+      required
+    />
+
+    <% if (typeof error !== 'undefined' && error) { %>
+    <p class="error-message" id="error-message"><%= error %></p>
+    <% } %>
+
+    <button type="submit">SUBMETER</button>
+  </form>
+</div>
+
+<%- include("partials/footer") %>

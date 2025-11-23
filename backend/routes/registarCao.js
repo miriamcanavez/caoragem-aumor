@@ -14,13 +14,16 @@ router.get("/registarCao", (req, res) => {
 router.get("/registarCao/:id", async (req, res) => {
   const db = await connectDB();
 
-  const result = await db.all(`
+  const result = await db.all(
+    `
     SELECT c.id_cao, c.nome, c.idade, c.sexo, c.porte, c.info_medica, c.info_pessoal, c.status, ic.path_fotos 
     FROM caes c 
     INNER JOIN imagens_caes ic 
       ON c.id_cao = ic.id_cao 
-    WHERE c.id_cao = ${req.params.id} AND ic.perfil = FALSE
-  `);
+    WHERE c.id_cao = ? AND ic.perfil = FALSE
+  `,
+    [req.params.id]
+  );
 
   if (!result || result.length === 0) {
     return res.render("registarCao", { cao: null });
