@@ -1,6 +1,5 @@
 import express from "express";
 import connectDB from "../db.js";
-import { formatarIdade } from "../utils/formatarIdade.js";
 
 const router = express.Router();
 
@@ -39,7 +38,7 @@ router.get("/registarCao/:id", async (req, res) => {
   const caoData = {
     id_cao: result[0].id_cao,
     nome: result[0].nome,
-    idade: formatarIdade(result[0].idade),
+    idade: result[0].idade,
     sexo: result[0].sexo,
     porte: result[0].porte,
     info_medica: result[0].info_medica,
