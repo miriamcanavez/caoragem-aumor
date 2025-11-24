@@ -139,11 +139,11 @@ body {
 }
 
 .slick-prev:hover {
-    background-color: white;
+    background-color: white !important;
 }
 
 .slick-next:hover {
-    background-color: white;
+    background-color: white !important;
 }
 
 .slick-prev:disabled,
