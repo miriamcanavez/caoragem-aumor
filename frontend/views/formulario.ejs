@@ -37,6 +37,8 @@
   <div class="right-column">
 
     <form id="infoForm" class="form-card" method="POST" action="/enviaEmail">
+      <input id="id_cao" name="id_cao" type="hidden" value=<%= cao.id_cao %> />
+      <input id="nome_cao" name="nome_cao" type="hidden" value=<%= cao.nome %> />
       <h2>FORMULÁRIO</h2>
 
       <label>Nome Completo:</label>

@@ -10,12 +10,12 @@ const transporter = nodemailer.createTransport({
 }});
 
 router.post("/enviaEmail", async (req, res) => {
-    const {nome, email, localizacao, telefone, observacoes} = req.body;
+    const {id_cao, nome_cao, nome, email, localizacao, telefone, observacoes} = req.body;
 try{
     await transporter.sendMail({
         from: `"Formulário do Site" <${"caoragemaumor@gmail.com"}>`,
         to: "caoragemaumor@gmail.com",
-        subject: "Novo Formulário Submetido",
+        subject: `Interesse submetido: #${id_cao} - ${nome_cao}`,//"Novo Formulário Submetido",
         text: `
             Informações preenchidas do Formulário:
             Nome: ${nome}
