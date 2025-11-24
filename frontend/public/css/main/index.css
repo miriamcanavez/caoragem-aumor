@@ -224,10 +224,12 @@ body {
     background-color: #9FA692;
 }
 
+
+
 .slick-prev {
-  width: 50px; 
-  height: 50px; 
-  background-color: lightgray; 
+  width: 40px; 
+  height: 40px; 
+  background-color: white; 
   border: none;
   border-radius: 50%; 
   cursor: pointer;
@@ -237,15 +239,39 @@ body {
 }
  
 .slick-next {
-  width: 50px; 
-  height: 50px; 
-  background-color: lightgray; 
+  width: 40px; 
+  height: 40px; 
+  background-color: white; 
   border: none;
   border-radius: 50%; 
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.slick-prev:hover {
+    background-color: white !important;
+}
+
+.slick-next:hover {
+    background-color: white !important;
+}
+
+.slick-prev:before {
+    content: '<';
+    margin-right: 3px;
+    color: black;
+    font-size: 18pt;
+    font-weight: bolder;
+}
+
+.slick-next:before {
+    content: '>';
+    margin-left: 3px;
+    color: black;
+    font-size: 18pt;
+    font-weight: bolder;
 }
 
 .slick-prev:disabled,
