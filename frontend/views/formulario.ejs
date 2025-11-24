@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="/libs/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="/libs/slick/slick-theme.css" />
 <link rel="stylesheet" href="/css/formulario/formulario.css" />
 
 <%- include("partials/headerMenu") %>
@@ -7,20 +9,12 @@
 <h1 id="nomeAnimal" class="pet-name"><%= cao.nome %></h1>
 
 <section class="carousel-container">
-  <button class="arrow left" onclick="mudarImagem(-1)">&#8592;</button>
-
   <div class="carousel">
     <% cao.fotos.forEach(imagem => { %>
-    <img src="/uploads/caes/fotos/<%= imagem.path_fotos %>" class="slide" />
+    <div>
+      <img src="/uploads/caes/fotos/<%= imagem.path_fotos %>" class="slide" />
+    </div>
     <% }) %>
-  </div>
-
-  <button class="arrow right" onclick="mudarImagem(1)">&#8594;</button>
-
-  <div class="dots">
-    <span onclick="irPara(0)" class="dot active"></span>
-    <span onclick="irPara(1)" class="dot"></span>
-    <span onclick="irPara(2)" class="dot"></span>
   </div>
 </section>
 
@@ -67,4 +61,6 @@
 <div class="onda-fim"></div>
 <%- include("partials/footer") %>
 
+<script src="/libs/jquery/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="/libs/slick/slick.min.js"></script>
 <script src="/js/formulario/formulario.js"></script>
