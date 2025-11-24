@@ -7,7 +7,7 @@
 <div class="imagens-container">
   <h1>Imagens</h1>
   <div class="imagens">
-    <% cao.fotos.forEach(imagem => { %>
+    <% cao.fotos.forEach((imagem, index) => { %>
     <div class="<%= imagem.path_fotos ? 'imagem-foto' : 'imagem-empty' %>">
       <% if (imagem.path_fotos) { %>
       <img src="/uploads/caes/fotos/<%= imagem.path_fotos %>" />
@@ -15,6 +15,14 @@
       <img src="/images/camera.png" />
       <% } %>
     </div>
+    <!-- Input de arquivo oculto para cada imagem -->
+    <input 
+      type="file" 
+      id="file-input-<%= index %>" 
+      class="file-input-hidden" 
+      accept="image/*" 
+      style="display: none;"
+    />
     <% }) %>
   </div>
 </div>
@@ -106,3 +114,5 @@
 <div class="onda-fim"></div>
 
 <%- include("partials/footer") %>
+
+<script src="/js/registarCao/registarCao.js"></script>
