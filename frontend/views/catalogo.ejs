@@ -10,7 +10,7 @@
     <div class="<%= caozinho.status ? 'adotado' : '' %>">
       <div
         class="card"
-        onclick="<%= admin ? '' : `location.assign('/formulario/${caozinho.id_cao}')` %>"
+        onclick="<%= admin || caozinho.status  ? '' : `location.assign('/formulario/${caozinho.id_cao}')` %>"
       >
         <img src="/uploads/caes/fotos/<%= caozinho.path_fotos %>" />
         <p>
