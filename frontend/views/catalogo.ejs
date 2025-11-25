@@ -7,14 +7,16 @@
 <section class="catalogo">
   <% caes.forEach(caozinho => { %>
   <div class="card-wrapper">
-    <div class="card">
-      <img
-        src="/uploads/caes/fotos/<%= caozinho.path_fotos %>"
+    <div class="<%= caozinho.status ? 'adotado' : '' %>">
+      <div
+        class="card"
         onclick="location.assign('/formulario/<%= caozinho.id_cao %>')"
-      />
-      <p>
-        <%= caozinho.nome %> | <%= caozinho.idade %><br /><%= caozinho.sexo %>
-      </p>
+      >
+        <img src="/uploads/caes/fotos/<%= caozinho.path_fotos %>" />
+        <p>
+          <%= caozinho.nome %> | <%= caozinho.idade %><br /><%= caozinho.sexo %>
+        </p>
+      </div>
     </div>
 
     <% if (admin) { %>
