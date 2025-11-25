@@ -6,11 +6,11 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   const db = await connectDB();
   const caes = await db.all(`
-    SELECT c.id_cao, c.nome, c.idade, c.sexo, ic.path_fotos 
+    SELECT c.id_cao, c.nome, c.idade, c.sexo, c.status, ic.path_fotos 
     FROM caes c 
     INNER JOIN imagens_caes ic 
       ON c.id_cao = ic.id_cao 
-    WHERE ic.perfil = TRUE
+    WHERE c.status = FALSE AND ic.perfil = TRUE
   `);
 
   res.render("index", {

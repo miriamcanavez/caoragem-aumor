@@ -53,4 +53,8 @@ router.get("/registarCao/:id", async (req, res) => {
   });
 });
 
+router.delete("/registarCao/:id", async (req, res) => {
+  const db = await connectDB();
+});
+
 export default router;
