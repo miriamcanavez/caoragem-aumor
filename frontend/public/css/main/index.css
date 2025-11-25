@@ -157,6 +157,7 @@ body {
     background-repeat: no-repeat;
     background-position: center top;
     position: relative;
+    padding-bottom: 80px;
 }
 
 #carrossel h3 {
