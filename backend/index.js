@@ -4,6 +4,7 @@ import path from "path";
 import bodyParser from "body-parser";
 import routes from "./routes/routes.js";
 import { fileURLToPath } from "url";
+import methodOverride from "method-override";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride("_method"));
 
 // Definição das rotas
 app.use("/", routes);
@@ -41,3 +43,4 @@ const PORT = 3000;
 app.listen(PORT, () =>
   console.log(`Servidor a correr em http://localhost:${PORT}`)
 );
+
