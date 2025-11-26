@@ -5,7 +5,7 @@ import connectDB from "../db.js";
 
 const router = express.Router();
 
-router.get("/registarCao", (req, res) => {
+router.get("/registarCao", isAdmin, (req, res) => {
   res.render("registarCao", {
     cao: {
       fotos: [{}, {}, {}, {}, {}, {}],
@@ -13,7 +13,7 @@ router.get("/registarCao", (req, res) => {
   });
 });
 
-router.get("/registarCao/:id", async (req, res) => {
+router.get("/registarCao/:id", isAdmin, async (req, res) => {
   const db = await connectDB();
 
   const result = await db.all(
@@ -128,5 +128,18 @@ router.delete("/registarCao/:id", async (req, res) => {
   }
 
 });
+
+// Middleware para verificar se o utilizador é administrador
+function isAdmin(req, res, next) {
+  if (req.session && req.session.user && req.session.user.admin === true) {
+    return next();
+  }
+  return res.status(403).send(`
+    <script>
+        alert("Acesso negado. Apenas administradores podem aceder a esta página.");
+        window.location.href = "/";
+    </script>
+    `);
+}
 
 export default router;
