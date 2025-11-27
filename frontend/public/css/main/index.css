@@ -41,7 +41,6 @@ body {
     padding-top: 100px;
 }
 
-/* HEADER */ 
 
 .header {
     width: 100%;
@@ -75,7 +74,6 @@ body {
     text-decoration: none;
 }
 
-/* MAIN */ 
 
 .container .onda-mockup {
     position: relative;
@@ -147,7 +145,6 @@ body {
     object-fit: cover;
 }
 
- /* GALERIA */
 
  #carrossel {
     width: 100%;
@@ -341,7 +338,6 @@ body {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-/* DONATIVOS */
 
 #donativos {
     background-color: #d9b9ad86;
@@ -439,7 +435,6 @@ body {
     }
 }
 
-/* CONTACTOS */
 
 #contactos {
     background-color: #f2f2f2;
@@ -491,7 +486,6 @@ body {
     margin-bottom: 0;
 }
 
-/* FOOTER */ 
 
 .footer {
     width: 100%;
