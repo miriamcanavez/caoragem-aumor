@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="../caoragem-aumor/frontend/public/images/logo.png" width="180" alt="Logo Cãoragem e Aumor">
+</p>
+
 # 🐾 CÃORAGEM E AUMOR  
 ### Plataforma de Adoção de Cães — Projeto Final
 
