@@ -137,8 +137,6 @@ router.delete("/registarCao/:id", async (req, res) => {
 
     rows.forEach((foto) => {
       const [pasta, arquivo] = foto.path_fotos.split("/");
-      console.log(pasta);
-      console.log(arquivo);
       const caminhoCompleto = path.join(
         process.cwd(),
         "backend",

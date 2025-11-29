@@ -10,7 +10,6 @@ export function sanitizeName(nomeCao) {
 }
 
 export function removeFile(filePath) {
-  console.log(filePath);
   if (fs.existsSync(filePath)) {
     fs.unlinkSync(filePath);
     const dir = path.dirname(filePath);
