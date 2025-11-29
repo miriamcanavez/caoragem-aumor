@@ -4,17 +4,30 @@
 
 <div class="onda-mockup"></div>
 
+<form 
+  action="<%= cao.id_cao ? `/registarCao/${cao.id_cao}?_method=PUT` : '/registarCao' %>"
+  method="POST"
+  enctype="multipart/form-data"
+>
+<input type="hidden" id="nomeCaoHidden" name="nomeCao">
 <div class="imagens-container">
   <h1>Imagens</h1>
   <div class="imagens">
-    <% cao.fotos.forEach(imagem => { %>
-    <div class="<%= imagem.path_fotos ? 'imagem-foto' : 'imagem-empty' %>">
-      <% if (imagem.path_fotos) { %>
-      <img src="/uploads/caes/fotos/<%= imagem.path_fotos %>" />
-      <% } else { %>
-      <img src="/images/camera.png" />
-      <% } %>
-    </div>
+    <% cao.fotos.forEach((imagem, index) => { %>
+      <div class="<%= imagem.path_fotos ? 'imagem-foto' : 'imagem-empty' %>">
+        <input 
+          type="file" 
+          name="fotos"
+          accept="image/*"
+          style="display:none"
+          data-index="<%= index %>"
+        >
+        <% if (imagem.path_fotos) { %>
+          <img src="/uploads/caes/fotos/<%= imagem.path_fotos %>" data-index="<%= index %>" />
+        <% } else { %>
+          <img src="/images/camera.png" data-index="<%= index %>" />
+        <% } %>
+      </div>
     <% }) %>
   </div>
 </div>
@@ -22,6 +35,7 @@
 <div class="input-item">
   <label for="nome" class="titulo">Nome do Animal:</label>
   <input 
+    name="nome"
     type="text" 
     class="resposta"
     value="<%= cao.nome %>"
@@ -31,6 +45,7 @@
 <div class="input-item">
   <label for="idade" class="titulo">Idade (Meses):</label>
   <input 
+    name="idade"
     type="number" 
     class="resposta"
     value="<%= cao.idade %>"
@@ -39,26 +54,27 @@
 
 <div class="input-item">
   <label for="sexo" class="titulo">Sexo:</label>
-  <select class="resposta">
+  <select name="sexo" class="resposta">
     <option value="padrão" <%= !cao.sexo ? 'selected' : '' %>>Por definir</option>
-    <option value="macho" <%= cao.sexo === 'Macho' ? 'selected' : '' %>>Macho</option>
-    <option value="fêmea" <%= cao.sexo === 'Fêmea' ? 'selected' : '' %>>Fêmea</option>
+    <option value="Macho" <%= cao.sexo === 'Macho' ? 'selected' : '' %>>Macho</option>
+    <option value="Fêmea" <%= cao.sexo === 'Fêmea' ? 'selected' : '' %>>Fêmea</option>
   </select>
 </div>
 
 <div class="input-item">
   <label for="porte" class="titulo">Porte:</label>
-  <select class="resposta">
+  <select name="porte" class="resposta">
     <option value="padrão" <%= !cao.porte ? 'selected' : '' %>>Por definir</option>
-    <option value="pequeno" <%= cao.porte === 'Pequeno' ? 'selected' : '' %>>Pequeno</option>
-    <option value="médio" <%= cao.porte === 'Médio' ? 'selected' : '' %>>Médio</option>
-    <option value="grande" <%= cao.porte === 'Grande' ? 'selected' : '' %>>Grande</option>
+    <option value="Pequeno" <%= cao.porte === 'Pequeno' ? 'selected' : '' %>>Pequeno</option>
+    <option value="Médio" <%= cao.porte === 'Médio' ? 'selected' : '' %>>Médio</option>
+    <option value="Grande" <%= cao.porte === 'Grande' ? 'selected' : '' %>>Grande</option>
   </select>
 </div>
 
 <div class="input-item">
-  <label for="info-médicas" class="titulo">Informações Médicas:</label>
+  <label for="info_medica" class="titulo">Informações Médicas:</label>
   <textarea
+    name="info_medica"
     rows="7"
     placeholder="Informações Médicas pertinentes"
     class="resposta"
@@ -67,8 +83,9 @@
 </div>
 
 <div class="input-item">
-  <label for="info-pessoais" class="titulo">Descrição do Animal:</label>
+  <label for="info_pessoal" class="titulo">Descrição do Animal:</label>
   <textarea
+    name="info_pessoal"
     rows="10"
     placeholder="Descrição da personalidade do Animal"
     class="resposta"

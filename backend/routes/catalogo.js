@@ -14,8 +14,6 @@ router.get("/catalogo", async (req, res) => {
     WHERE ic.perfil = TRUE
   `);
 
-  console.log(caes);
-
   res.render("catalogo", {
     caes: caes.map((item) => ({
       ...item,
@@ -26,7 +24,7 @@ router.get("/catalogo", async (req, res) => {
       { label: "Contactos", url: "/#contactos" },
       { label: "Início", url: "/" },
     ],
-    admin: req.session?.user?.admin || false, 
+    admin: req.session?.user?.admin || false,
   });
 });
 
