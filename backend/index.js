@@ -4,6 +4,7 @@ import path from "path";
 import bodyParser from "body-parser";
 import routes from "./routes/routes.js";
 import { fileURLToPath } from "url";
+import methodOverride from "method-override";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,13 +16,12 @@ app.set("views", path.join(__dirname, "../frontend/views"));
 app.use(express.static(path.join(__dirname, "../frontend/public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// Configurações básicas
 app.use(
   session({
     secret: "4e7d051b-46da-4856-8496-92162bf85929",
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 1000 * 60 * 60 }, // 1 hora
+    cookie: { maxAge: 1000 * 60 * 60 }, 
   })
 );
 
@@ -32,12 +32,14 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride("_method"));
 
-// Definição das rotas
+
 app.use("/", routes);
 
-// Servidor
+
 const PORT = 3000;
 app.listen(PORT, () =>
   console.log(`Servidor a correr em http://localhost:${PORT}`)
 );
+

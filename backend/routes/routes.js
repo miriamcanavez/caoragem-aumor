@@ -6,6 +6,7 @@ import mainRoutes from "./main.js";
 import loginRoutes from "./login.js";
 import formularioRoutes from "./formulario.js";
 import enviaEmailRoutes from "./enviaEmail.js";
+import apagarCao from "./registarCao.js"
 
 const router = express.Router();
 
@@ -15,5 +16,7 @@ router.use(mainRoutes);
 router.use(loginRoutes);
 router.use(formularioRoutes);
 router.use(enviaEmailRoutes);
+
+router.delete("/caes/:id", apagarCao);
 
 export default router;

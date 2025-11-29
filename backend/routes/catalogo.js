@@ -26,6 +26,7 @@ router.get("/catalogo", async (req, res) => {
       { label: "Contactos", url: "/#contactos" },
       { label: "Início", url: "/" },
     ],
+    admin: req.session?.user?.admin || false, 
   });
 });
 

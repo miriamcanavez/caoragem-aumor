@@ -76,33 +76,42 @@
   ><%= cao.info_pessoal %></textarea>
 </div>
 
-<!-- BOTÕES -->
-
 <div class="botoes-acao <%= cao.id_cao ? 'editar' : 'adicionar' %>">
   <% if (cao.id_cao) { %>
   <div class="checkbox-adotado">
-    <input 
-      type="checkbox" 
-      name="adotado" 
+    <input
+      type="checkbox"
+      name="status"
       class="checkbox-adotado-input"
       <%= cao.status ? 'checked' : '' %>
     />
     <label for="adotado">Adotado</label>
-    <!-- este tem de mudar o status na bd -->
   </div>
-
+ 
   <div class="botoes-acao-direita">
     <button type="submit" class="botao-guardar">Guardar</button>
-    <!-- este botão tem que modificar os elementos na bd -->
-
-    <button type="submit" class="botao-apagar">Apagar</button>
-    <!-- este botão tem que criar um alert a perguntar se quer mesmo apagar o animal -->
+ 
+    <button
+      type="button"
+      class="botao-apagar"
+      onclick="if(confirm('Tem certeza que deseja apagar?')) document.getElementById('deleteForm').submit()"
+    >
+      Apagar
+    </button>
   </div>
   <% } else { %>
   <button type="submit" class="botao-adicionar">Adicionar</button>
   <% } %>
 </div>
-
+</form>
+<form
+  id="deleteForm"
+  action="/registarCao/<%= cao.id_cao %>?_method=DELETE"
+  method="POST"
+>
+</form>
 <div class="onda-fim"></div>
-
+ 
 <%- include("partials/footer") %>
+
+<script src="/js/registarCao/registarCao.js"></script>

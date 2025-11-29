@@ -1,9 +1,11 @@
 import express from "express";
+import path from "path";
+import fs from "fs"
 import connectDB from "../db.js";
 
 const router = express.Router();
 
-router.get("/registarCao", (req, res) => {
+router.get("/registarCao", isAdmin, (req, res) => {
   res.render("registarCao", {
     cao: {
       fotos: [{}, {}, {}, {}, {}, {}],
@@ -11,7 +13,7 @@ router.get("/registarCao", (req, res) => {
   });
 });
 
-router.get("/registarCao/:id", async (req, res) => {
+router.get("/registarCao/:id", isAdmin, async (req, res) => {
   const db = await connectDB();
 
   const result = await db.all(
@@ -54,7 +56,90 @@ router.get("/registarCao/:id", async (req, res) => {
 });
 
 router.delete("/registarCao/:id", async (req, res) => {
+
   const db = await connectDB();
+
+  const id = req.params.id;
+ 
+  try {
+
+    // 1 — BUSCAR FOTOS ANTES DE APAGAR
+
+    const rows = await db.all(
+
+      "SELECT path_fotos FROM imagens_caes WHERE id_cao = ?",
+
+      [id]
+
+    );
+ 
+    // 2 — APAGAR FOTOS DO DISCO
+
+    rows.forEach(foto => {
+
+      const caminhoCompleto = path.join(
+
+        process.cwd(),
+
+        "uploads",
+
+        "caes",
+
+        "fotos",
+
+        foto.path_fotos
+
+      );
+ 
+      if (fs.existsSync(caminhoCompleto)) {
+
+        try {
+
+          fs.unlinkSync(caminhoCompleto);
+
+        } catch (err) {
+
+          console.error("Erro ao apagar a foto:", err);
+
+        }
+
+      }
+
+    });
+ 
+    // 3 — APAGAR FOTOS DA BASE DE DADOS
+
+    await db.run("DELETE FROM imagens_caes WHERE id_cao = ?", [id]);
+ 
+    // 4 — APAGAR O CAO DA BASE DE DADOS
+
+    await db.run("DELETE FROM caes WHERE id_cao = ?", [id]);
+ 
+    // 5 — REDIRECIONAR
+
+    res.redirect("/catalogo");
+
+  } catch (err) {
+
+    console.error("Erro ao apagar o cão:", err);
+
+    res.status(500).send("Erro ao apagar o cão.");
+
+  }
+
 });
+
+// Middleware para verificar se o utilizador é administrador
+function isAdmin(req, res, next) {
+  if (req.session && req.session.user && req.session.user.admin === true) {
+    return next();
+  }
+  return res.status(403).send(`
+    <script>
+        alert("Acesso negado. Apenas administradores podem aceder a esta página.");
+        window.location.href = "/";
+    </script>
+    `);
+}
 
 export default router;
