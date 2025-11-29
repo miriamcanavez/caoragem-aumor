@@ -21,7 +21,7 @@ app.use(
     secret: "4e7d051b-46da-4856-8496-92162bf85929",
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 1000 * 60 * 60 }, 
+    cookie: { maxAge: 1000 * 60 * 60 },
   })
 );
 
@@ -34,12 +34,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
-
 app.use("/", routes);
-
 
 const PORT = 3000;
 app.listen(PORT, () =>
   console.log(`Servidor a correr em http://localhost:${PORT}`)
 );
-
