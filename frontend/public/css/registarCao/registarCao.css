@@ -129,6 +129,7 @@ body {
 
 .imagem-foto,
 .imagem-empty {
+    cursor: pointer;
     flex: 1 1 calc((100% - 32px) / 3); 
     max-width: calc((100% - 32px) / 3);
     box-sizing: border-box;
@@ -192,6 +193,7 @@ body {
     opacity: 1;
     pointer-events: auto;
 }
+
 
 .imagem-empty {
     display: flex;
