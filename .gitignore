@@ -7,5 +7,4 @@ db/**
 # Uploads de imagens
 backend/uploads/**
 
-# Se você tiver outros arquivos temporários do backend
 *.log

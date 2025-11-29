@@ -2,7 +2,8 @@
   <img src="frontend/public/images/logo.png" width="180" alt="Logo Cãoragem e Aumor">
 </p>
 
-# 🐾 CÃORAGEM E AUMOR  
+# 🐾 CÃORAGEM E AUMOR
+
 ### Plataforma de Adoção de Cães — Projeto Final
 
 ---
@@ -12,12 +13,12 @@
 O **Cãoragem e Aumor** é uma plataforma web desenvolvida para auxiliar processos de adoção de cães resgatados.  
 Criado por **Miriam Barbosa**, **Maria Calarota** e **Maria Pinto**, o projeto combina frontend, backend e base de dados para oferecer:
 
-- Catálogo de cães disponíveis para adoção  
-- Sistema de login para administração  
-- Páginas individuais com fotos, descrição e dados completos  
-- Formulário de interesse com envio automático por e-mail  
-- Área administrativa para adicionar, editar e remover cães  
-- Organização automática das imagens no servidor  
+- Catálogo de cães disponíveis para adoção
+- Sistema de login para administração
+- Páginas individuais com fotos, descrição e dados completos
+- Formulário de interesse com envio automático por e-mail
+- Área administrativa para adicionar, editar e remover cães
+- Organização automática das imagens no servidor
 
 O objetivo é unir **tecnologia + bem-estar animal**, proporcionando uma plataforma simples, bonita e funcional. 🐶❤️
 
@@ -27,34 +28,37 @@ O objetivo é unir **tecnologia + bem-estar animal**, proporcionando uma platafo
 
 ### 🖥️ Frontend
 
-- HTML5  
-- CSS3 (separado por páginas)  
-- JavaScript (Vanilla)  
-- EJS — Templates  
-- Slick Carousel  
+- HTML5
+- CSS3 (separado por páginas)
+- JavaScript (Vanilla)
+- EJS — Templates
+- Slick Carousel
 
 ### ⚙️ Backend
 
-- Node.js  
-- Express  
-- Multer (upload de imagens)  
-- Nodemailer (envio de e-mails)  
-- Express-Session  
-- Method-Override  
+- Node.js
+- Express
+- Multer (upload de imagens)
+- Nodemailer (envio de e-mails)
+- Express-Session
+- Method-Override
 
 ### 🗄️ Base de Dados
 
-- SQLite  
-- Scripts SQL para criação automática de tabelas  
+- SQLite
+- Scripts SQL para criação automática de tabelas
 
 ---
 
 ## 📂 Estrutura do Projeto
 
 ### **Backend**
+
 ```
 backend/
 │
+├── middleware/
+│   ├── upload.js
 ├── routes/
 │   ├── catalogo.js
 │   ├── registarCao.js
@@ -79,6 +83,7 @@ backend/
 ```
 
 ### **Frontend**
+
 ```
 frontend/
 │
@@ -109,9 +114,9 @@ frontend/
 
 Antes de começar, instale:
 
-- Node.js  
-- NPM  
-- SQLite ou DB Browser for SQLite  
+- Node.js
+- NPM
+- SQLite ou DB Browser for SQLite
 
 ---
 
@@ -153,22 +158,22 @@ http://localhost:3000
 
 ### 👥 Visitantes
 
-- Visualização completa de todos os cães  
-- Página individual com:  
-  - fotos  
-  - idade, sexo, porte  
-  - descrição  
-- Formulário de adoção  
-- Envio automático de e-mail ao canil  
+- Visualização completa de todos os cães
+- Página individual com:
+  - fotos
+  - idade, sexo, porte
+  - descrição
+- Formulário de adoção
+- Envio automático de e-mail ao canil
 
 ### 🔐 Administração
 
-- Login com validação  
-- Adicionar novo cão  
-- Editar dados e fotos  
-- Marcar como adotado  
-- Apagar cão (DELETE)  
-- Gestão de galeria  
+- Login com validação
+- Adicionar novo cão
+- Editar dados e fotos
+- Marcar como adotado
+- Apagar cão (DELETE)
+- Gestão de galeria
 
 ---
 
@@ -182,12 +187,12 @@ caoragemaumor@gmail.com
 
 Dados enviados:
 
-- ID e nome do cão escolhido 
-- Nome  
-- Telefone  
-- Localização  
-- Email  
-- Observações  
+- ID e nome do cão escolhido
+- Nome
+- Telefone
+- Localização
+- Email
+- Observações
 
 ---
 
@@ -195,26 +200,26 @@ Dados enviados:
 
 ### 🔓 Rotas Públicas
 
-| Método | Rota | Descrição |
-|--------|-------|-----------|
-| GET | `/` | Página inicial |
-| GET | `/catalogo` | Lista todos os cães |
-| GET | `/caes/:id` | Página de um cão |
-| GET | `/formulario/:id` | Formulário de adoção |
+| Método | Rota              | Descrição            |
+| ------ | ----------------- | -------------------- |
+| GET    | `/`               | Página inicial       |
+| GET    | `/catalogo`       | Lista todos os cães  |
+| GET    | `/caes/:id`       | Página de um cão     |
+| GET    | `/formulario/:id` | Formulário de adoção |
 
 ---
 
 ### 🔐 Rotas Administrativas
 
-| Método | Rota | Descrição |
-|--------|-------|-----------|
-| GET | `/login` | Login |
-| POST | `/login` | Autenticar |
-| GET | `/registar` | Formulário para novo cão |
-| POST | `/registar` | Registar cão |
-| GET | `/editar/:id` | Editar cão |
-| POST | `/editar/:id` | Atualizar cão |
-| DELETE | `/caes/:id` | Apagar cão |
+| Método | Rota          | Descrição                |
+| ------ | ------------- | ------------------------ |
+| GET    | `/login`      | Login                    |
+| POST   | `/login`      | Autenticar               |
+| GET    | `/registar`   | Formulário para novo cão |
+| POST   | `/registar`   | Registar cão             |
+| GET    | `/editar/:id` | Editar cão               |
+| POST   | `/editar/:id` | Atualizar cão            |
+| DELETE | `/caes/:id`   | Apagar cão               |
 
 ---
 
@@ -224,12 +229,12 @@ Tabela principal: **caes**
 
 Campos:
 
-- id  
-- nome  
-- dados (sexo, porte, condições físicas…)  
-- descricao  
-- adotado (boolean)  
-- pastaFotos  
+- id
+- nome
+- dados (sexo, porte, condições físicas…)
+- descricao
+- adotado (boolean)
+- pastaFotos
 
 As imagens ficam armazenadas em:
 
@@ -243,16 +248,16 @@ As imagens ficam armazenadas em:
 
 Baseado no mockup incluído no repositório:
 
-- Paleta suave pastel  
-- Pegadas e ícones temáticos  
-- Layout limpo e intuitivo  
-- Logótipo “Cãoragem e Aumor”  
+- Paleta suave pastel
+- Pegadas e ícones temáticos
+- Layout limpo e intuitivo
+- Logótipo “Cãoragem e Aumor”
 - Páginas principais:
-  - Catálogo público  
-  - Página individual  
-  - Formulário  
-  - Login  
-  - Área administrativa  
+  - Catálogo público
+  - Página individual
+  - Formulário
+  - Login
+  - Área administrativa
 
 ---
 
@@ -260,9 +265,9 @@ Baseado no mockup incluído no repositório:
 
 Desenvolvido por:
 
-- **Miriam Barbosa**  
-- **Maria Calarota**  
-- **Maria Pinto**  
+- **Miriam Barbosa**
+- **Maria Calarota**
+- **Maria Pinto**
 
 Projeto Final — Desenvolvimento Web  
 Unidas por coragem, amor e… cães. 🐶💛
