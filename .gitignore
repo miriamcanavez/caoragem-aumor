@@ -2,10 +2,10 @@ node_modules/
 .vscode/
 
 # Banco SQLite (geralmente não versiona)
-db/*.sqlite
+db/**
 
 # Uploads de imagens
-uploads/**
+backend/uploads/**
 
 # Se você tiver outros arquivos temporários do backend
 *.log
