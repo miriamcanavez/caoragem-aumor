@@ -92,29 +92,54 @@ router.put("/registarCao/:id", upload.array("fotos", 6), async (req, res) => {
   const db = await connectDB();
   const id = req.params.id;
 
-  const { nome, idade, sexo, porte, info_medica, info_pessoal, status } =
-    req.body;
+  const {
+    nome,
+    idade,
+    sexo,
+    porte,
+    info_medica,
+    info_pessoal,
+    status,
+    fotosRemovidas,
+  } = req.body;
 
   await db.run(
-    `
-    UPDATE caes
-    SET nome=?, idade=?, sexo=?, porte=?, info_medica=?, info_pessoal=?, status=?
-    WHERE id_cao=?
-  `,
+    `UPDATE caes
+     SET nome=?, idade=?, sexo=?, porte=?, info_medica=?, info_pessoal=?, status=?
+     WHERE id_cao=?`,
     [nome, idade, sexo, porte, info_medica, info_pessoal, status ? 1 : 0, id]
   );
 
-  req.files.forEach(async (file, index) => {
-    const isPerfil = index === 0 ? 1 : 0;
+  if (fotosRemovidas) {
+    const fotos = JSON.parse(fotosRemovidas);
+    for (const foto of fotos) {
+      const [pasta, arquivo] = foto.split("/");
+      removerArquivo(pasta, arquivo);
+      await db.run(
+        "DELETE FROM imagens_caes WHERE id_cao = ? AND path_fotos = ?",
+        [id, foto]
+      );
+    }
+  }
+
+  const perfilExistente = await db.get(
+    "SELECT COUNT(*) as count FROM imagens_caes WHERE id_cao = ? AND perfil = 1",
+    [id]
+  );
+  let perfilDefinido = perfilExistente.count > 0;
+
+  for (const [index, file] of req.files.entries()) {
+    let isPerfil = 0;
+    if (!perfilDefinido) {
+      isPerfil = 1;
+      perfilDefinido = true;
+    }
 
     await db.run(
-      `
-        INSERT INTO imagens_caes (id_cao, path_fotos, perfil)
-        VALUES (?, ?, ?)
-      `,
-      [idCao, `${nome}/${file.filename}`, isPerfil]
+      `INSERT INTO imagens_caes (id_cao, path_fotos, perfil) VALUES (?, ?, ?)`,
+      [id, `${nome}/${file.filename}`, isPerfil]
     );
-  });
+  }
 
   return res.redirect("/catalogo");
 });
@@ -137,17 +162,7 @@ router.delete("/registarCao/:id", async (req, res) => {
 
     rows.forEach((foto) => {
       const [pasta, arquivo] = foto.path_fotos.split("/");
-      const caminhoCompleto = path.join(
-        process.cwd(),
-        "backend",
-        "uploads",
-        "caes",
-        "fotos",
-        sanitizeName(pasta),
-        arquivo
-      );
-
-      removeFile(caminhoCompleto);
+      removerArquivo(pasta, arquivo);
     });
 
     // 3 — APAGAR FOTOS DA BASE DE DADOS
@@ -167,6 +182,20 @@ router.delete("/registarCao/:id", async (req, res) => {
     res.status(500).send("Erro ao apagar o cão.");
   }
 });
+
+function removerArquivo(pasta, arquivo) {
+  const caminhoCompleto = path.join(
+    process.cwd(),
+    "backend",
+    "uploads",
+    "caes",
+    "fotos",
+    sanitizeName(pasta),
+    arquivo
+  );
+
+  removeFile(caminhoCompleto);
+}
 
 // Middleware para verificar se o utilizador é administrador
 function isAdmin(req, res, next) {
