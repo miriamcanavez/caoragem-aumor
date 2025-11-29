@@ -12,7 +12,7 @@ router.get("/formulario/:id", async (req, res) => {
     FROM caes c 
     INNER JOIN imagens_caes ic 
       ON c.id_cao = ic.id_cao 
-    WHERE c.id_cao = ? AND ic.perfil = FALSE
+    WHERE c.id_cao = ?
   `,
     [req.params.id]
   );
