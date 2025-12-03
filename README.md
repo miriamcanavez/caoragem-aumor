@@ -125,7 +125,7 @@ Antes de começar, instale:
 Clone este repositório:
 
 ```sh
-git clone https://github.com/miriamcanavez/caoragem-aumor.git
+git clone https://github.com/caoragem-aumor/caoragem-aumor-web
 ```
 
 Acesse a pasta do projeto:
